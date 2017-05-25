@@ -110,6 +110,11 @@ func (c *secureConn) RemotePublicKey() ic.PubKey {
 	return c.secure.RemotePublicKey()
 }
 
+// RemoteGupkey is the group key of the peer on the remote side
+func (c *secureConn) RemoteGupkey() string {
+	return c.secure.RemoteGupkey()
+}
+
 // Read reads data, net.Conn style
 func (c *secureConn) Read(buf []byte) (int, error) {
 	return c.secure.ReadWriter().Read(buf)

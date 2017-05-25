@@ -79,8 +79,8 @@
       "version": "1.2.0"
     },
     {
-      "author": "whyrusleeping",
-      "hash": "QmV2e7FjHs7N27D4gRoe2wqRMhMCtfiMmm2teeKqvk7K4Y",
+      "author": "yenkuanlee",
+      "hash": "QmfQvhEKFb1BF56BhdU643wrLXyeHSfAHwHAe4SsiKT7eo",
       "name": "go-libp2p-secio",
       "version": "1.1.7"
     },
@@ -109,8 +109,8 @@
       "version": "1.1.7"
     },
     {
-      "author": "whyrusleeping",
-      "hash": "QmcXRdAP5bCCm51X7XfDUrQ8Q9PsrKbU75pyvB18iuKob5",
+      "author": "yenkuanlee",
+      "hash": "QmNxRo1oVHv8G55QYbXRweZbdhrPwLpLounxQC7VikdYUf",
       "name": "go-libp2p-interface-conn",
       "version": "0.4.7"
     },

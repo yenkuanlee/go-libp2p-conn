@@ -1,6 +1,9 @@
 package conn
 
 import (
+	"strings"
+	"io/ioutil"
+
 	"context"
 	"fmt"
 	"io"
@@ -106,6 +109,11 @@ func (l *listener) Accept() (transport.Conn, error) {
 			log.Infof("ignoring conn we failed to secure: %s %s", err, c)
 			continue
 		}
+
+		if !strings.EqualFold(sc.RemoteGupkey(),GetDomainName()){
+			continue
+		}
+
 		return sc, nil
 	}
 	return nil, fmt.Errorf("listener is closed")
@@ -259,4 +267,17 @@ type ListenerConnWrapper interface {
 // connections with. MUST be set _before_ calling `Accept()`
 func (l *listener) SetConnWrapper(cw ConnWrapper) {
 	l.wrapper = cw
+}
+
+func GetDomainName() string{
+	dat, err := ioutil.ReadFile("/opt/iservstor/conf/iservstor.conf")
+	if err != nil{
+		fmt.Println("error !!")
+		return "NO FILE"
+	}
+	tmp := strings.Split(string(dat),"DOMAIN_NAME")[1]
+	tmpp := strings.Split(tmp,"\n")[0]
+	tmppp := strings.Split(tmpp,"=")[1]
+	DomainName := strings.Replace(tmppp," ","",-1)
+	return DomainName
 }
